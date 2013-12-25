@@ -1,0 +1,14 @@
+<?xml version="1.0" ?>
+<project name="zanmantou3" default="build" basedir=".">
+        <target name="build">
+            <exec dir="." failonerror="true" executable="C:\Flex4\bin\mxmlc.exe">
+                  <arg line="a3non/zanmantou3/Zanmantou.as" />
+                  <arg line=" -o C:\www\htdocs\zanmantou3\Zanmantou3Debug.swf -warnings=true" />
+                	<arg line=" -default-size 400 400" />
+                	<arg line=" -raw-metadata metadata.xml" />
+                	<arg line=" -default-background-color=0xFFFFFF" />
+            		<arg line=" -source-path=C:\Development\Zanmantou3\src\" />
+            		<arg line=" -static-link-runtime-shared-libraries=true  -debug=true -debug-password zanmantou" />
+            </exec>
+        </target>
+</project>

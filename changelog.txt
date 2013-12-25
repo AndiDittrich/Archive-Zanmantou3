@@ -1,0 +1,54 @@
+________________________________________________________________________
+3.0		
+	- first release
+
+________________________________________________________________________
+3.0.1
+	- bugfix :: enables crossdomain access
+	- bugfix :: initial sound transform update failed
+	
+________________________________________________________________________
+3.0.2
+	- improoved :: javascript control support
+	- improoved :: XML converter
+	- modified :: disables actionscript errors/trace (e.g. from XSS cases)
+	- added :: dynamical javascipt medialist manipulation
+	- added :: xmlready, guiready events
+
+________________________________________________________________________
+3.0.3
+	- modified :: moved a3non namespace to org.a3non
+	- added :: FlashVars overwrite for imagepath and mediapath
+
+	____________________________________________________________________
+3.1
+	- bugfix :: volume/balance slider intial settings doesn't work
+	- bugfix :: slider "cropmode" doesn't work on volume/balance slider
+	- bugfix :: ui component handling failure fixed
+	- bugfix :: video-size-manager design failure
+	- bugfix :: javascript api support for WebKit and browsers with flash-blocker-plugins (delayed execution) 
+	- bugfix :: shuffle button doesn't work (triggered repeat event)
+	- bugfix :: shuffle, repeat, repeatall buttons have had an inverted behaviour (javascript methods also)
+	- bugfix :: javascript methods getWave() and getSpectrum() doesn't work
+	- bugfix :: null pointer exception in InfoArea on non existing current media item
+	- bugfix :: loading screen doesn't hide when images into the image path are missing
+	- bugfix :: video size parameters ignored
+	- bugfix :: media items get removed from list on mediaerror -> prevent infinite loops on corrupted media list/path
+	- added :: proportional video scaling option
+	- added :: video smoothing option (not hardware acccelerated)
+	- added :: thumbnail support for audio and video files
+	- added :: error handling on JSAPI based XSS security sandbox violations
+	- added :: flashvars - added javascript enable flag. default javascript support is now disabled!
+	- added :: StageVideo Support (Hardware accelerated video playback+decoding)
+	- added :: show startup errors (config/media lists missing)
+	- added :: autostart function
+	- improoved :: new audio/video engine design
+	- improoved :: new JavascriptAPI design -> fixes some event issues
+	- improoved :: new error handling: debug mode added + get error messages with javascript 
+
+3.1.1
+	- bugfix :: start button doesn't disappear on autostart
+	- bugfix :: disabled/not supported stagevideo causes nullpointer exception
+	____________________________________________________________________
+3.2.0
+	- added :: VisionLight Support (Moodlight, Ambilight, ..)

@@ -1,0 +1,216 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+	<!-- 
+    	@author Andi Dittrich
+	!-->
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="de" lang="de">
+<head>
+	<!-- Meta !-->
+	<title>Zanmantou3 MooTools Examples | A3non.org</title>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+
+	<!-- Mootools Core !-->
+	<script type="text/javascript" src="js/mootools-core-1.3-full-nocompat-yc.js"></script>
+
+	<!-- Mootools more - required for sliders AND the api (MooTools.MORE.Hash) !-->
+	<script type="text/javascript" src="js/mootools-1.3.0.1-min-more-yc.js"></script>
+    
+   	<!-- Zanmantou JSAPI !-->
+ 	<script type="text/javascript" src="js/ZanmantouJSAPI-1.3-mootools.yui.js"></script>
+ 
+	<!-- Startup !-->
+	<script type="text/javascript">
+		
+		window.addEvent('flashready', function(){
+			/**
+			 * EXAMPLE 1
+			*/
+			var player1 = new Zanmantou('zanmantou1');
+			
+			$('z1_start').addEvent('click', function(){
+				player1.start();
+			});
+			$('z1_stop').addEvent('click', function(){
+				player1.stop();
+			});			
+			$('z1_pause').addEvent('click', function(){
+				player1.pause();
+			});			
+			$('z1_next').addEvent('click', function(){
+				player1.next();
+			});			
+			$('z1_prev').addEvent('click', function(){
+				player1.prev();
+			}); 
+
+
+			/**
+			* EXAMPLE2 - js based volume+pan control
+			*/
+			
+			var player2 = new Zanmantou('zanmantou2');
+		
+			// initialize slider with default volume of the player
+			var mySlider = new Slider('z2_volume', 'z2_knob', {
+				range: [0, 100],
+				wheel: false,
+				snap: true,
+				initialStep: (player2.getVolume()*100),
+				onComplete: function(pos){
+					// normalize to 1
+					player2.setVolume(pos/100);
+				}
+			});
+
+			// initialize slider with default pan of the player
+			var mySlider = new Slider('z2_pan', 'z2_panknob', {
+				range: [-100, 100],
+				wheel: false,
+				snap: true,
+				initialStep: (player2.getPan()*100),
+				onComplete: function(pos){
+					// normalize to 1
+					player2.setPan(pos/100);
+				}
+			});
+
+			/**
+			*	EXAMPLE3 - get media informations
+			*/
+			var player3 = new Zanmantou('zanmantou3');	
+			
+			// container function..500ms update rate
+			(function(){
+				// FPS
+				$('z3_fps').set('text', player3.getFPS());
+				
+				// time
+				$('z3_time').set('text', player3.getMediaTime() + ':' + player3.getMediaLength());
+				
+				// playback active ?
+				if (player3.isPlaying()) {
+					$('z3_playback').set('text', 'yes');
+				}else{
+					$('z3_playback').set('text', 'no');
+				}
+			}).periodical(500);
+			
+
+			// add play event handler (update on track change)
+			player3.addEvent('play', function(index){
+				// get active item
+				var item = player3.getMediaList()[index];
+
+				// set title by using medialist data
+				$('z3_title').set('text', item.params.title);
+			});
+			
+		});
+	
+		</script>
+<style type="text/css" media="screen">
+	body{
+		background-color: #f1f1f1;
+	}
+	.center{
+		width: 90%;
+		margin: 20px auto auto auto;
+		background-color: #ffffff;
+		padding: 20px;
+	}
+	.controls{
+		background-color: #e0e0e0;
+		border: solid 1px #a0a0a0;
+		padding: 15px;
+		margin: 10px 0px 10px 0px;
+	}
+	#z2_volume, #z2_pan{
+		width: 500px;
+		height: 20px;
+		background-color: #f0f0f0;
+	}
+	#z2_knob, #z2_panknob{
+		width: 20px;
+		height: 20px;
+		background-color: #a0a0a0;
+		cursor: pointer;
+	}
+	
+</style>	
+</head>
+<body>
+	
+<div class="center">	
+	<h1>Zanmantou3 JSAPI Demo</h1>	
+	<p>View <a href="http://docs.a3non.org/zanmantou3/">API Docs</a> - The API is released under the MIT Style X11 License</p>
+
+   
+    
+	<!-- example 1 !-->
+	<h2>Example 1 - Simple Control Elements</h2>
+	<object id="zanmantou1" data="Zanmantou3.swf" type="application/x-shockwave-flash" width="600" height="400" >
+		<param name="movie" value="Zanmantou3.swf" />
+		<param name="quality" value="best" />
+		<param name="scale" value="noscale" />
+		<param name="salign" value="lt" />
+		<param name="FlashVars" value="js=true&config=themes/puregrey/puregrey.xml&imagepath=themes/puregrey/&list=medialist.xml" />
+        <param name="wmode" value="direct" /> 
+		<param name="allowScriptAccess" value="sameDomain" />
+		<param name="allowFullScreen" value="true" />
+		<p>No Flashplayer installed</p>
+	</object>
+	
+	<div class="controls">
+		<input type="button" id="z1_start" value="start" />
+		<input type="button" id="z1_stop" value="stop" />
+		<input type="button" id="z1_pause" value="pause" />
+		<input type="button" id="z1_next" value="next" />
+		<input type="button" id="z1_prev" value="prev" />
+	</div>
+	
+	<!-- example 2 !-->
+	<h2>Example 2 - Complex Control Elements</h2>
+	<object id="zanmantou2" data="Zanmantou3.swf" type="application/x-shockwave-flash" width="600" height="400" >
+		<param name="movie" value="Zanmantou3.swf" />
+		<param name="quality" value="best" />
+		<param name="scale" value="noscale" />
+		<param name="salign" value="lt" />
+		<param name="FlashVars" value="js=true&config=themes/puregrey/puregrey.xml&imagepath=themes/puregrey/&list=medialist.xml" />
+        <param name="wmode" value="direct" /> 
+		<param name="allowScriptAccess" value="sameDomain" />
+		<param name="allowFullScreen" value="true" />
+		<p>No Flashplayer installed</p>
+	</object>
+	
+	<div class="controls">
+		<p>Volume control by MooTools Slider (update on drop)</p>
+		<div id="z2_volume"><div id="z2_knob"></div></div>
+        
+        <p>Pan control by MooTools Slider (update on drop)</p>
+		<div id="z2_pan"><div id="z2_panknob"></div></div>
+	</div>	
+
+	<!-- example 3 !-->
+	<h2>Example 3 - Status Informations</h2>
+	<object id="zanmantou3" data="Zanmantou3.swf" type="application/x-shockwave-flash" width="600" height="400" >
+		<param name="movie" value="Zanmantou3.swf" />
+		<param name="quality" value="best" />
+		<param name="scale" value="noscale" />
+		<param name="salign" value="lt" />
+		<param name="FlashVars" value="js=true&config=themes/puregrey/puregrey.xml&imagepath=themes/puregrey/&list=medialist.xml" />
+        <param name="wmode" value="direct" /> 
+		<param name="allowScriptAccess" value="sameDomain" />
+		<param name="allowFullScreen" value="true" />
+		<p>No Flashplayer installed</p>
+	</object>
+	
+	<div class="controls">
+		<p>FPS : <span id="z3_fps">-</span></p>
+		<p>Track Time in seconds: <span id="z3_time">-</span></p>
+		<p>Playback active: <span id="z3_playback">no</span></p>
+		<p>Title:  <span id="z3_title">-</span></p>
+	</div>
+    
+   </div>
+</body>
+</html>

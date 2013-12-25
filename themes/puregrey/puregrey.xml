@@ -1,0 +1,342 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Zanmantou 3 - PUREGREY Skin !-->
+<zanmantou version="3.1">
+
+	
+	<!-- normal UI config !-->
+	<normal>
+		<!-- video/cover settings !-->
+		<engine zindex="2" width="100%" height="100%" x="center" y="center" z="0" rx="0" ry="0" rz="0">
+			<!-- size management [native, fixed, proportional] !-->
+			<sizing>native</sizing>
+		</engine>	
+		
+		<!-- in this section you can define the UI buttons !-->
+		<buttons>
+			<!-- big center button !-->
+			<start zindex="100" x="center" y="center">
+				<over>start_big_hover.png</over>
+				<out>start_big.png</out>
+			</start>
+			
+			<!-- main control bottom !-->
+			<start zindex="10" x="0" y="bottom">
+				<over>start_hover.png</over>
+				<out>start.png</out>
+				<release>start.png</release>
+				<press>start_press.png</press>
+			</start>
+			
+			<pause zindex="10" x="0" y="bottom">
+				<over>pause_hover.png</over>
+				<out>pause.png</out>
+				<release>pause.png</release>
+				<press>pause_press.png</press>
+			</pause>
+			
+			<prev zindex="10" x="32" y="bottom">
+				<over>prev_hover.png</over>
+				<out>prev.png</out>
+				<release>prev.png</release>
+				<press>prev_press.png</press>
+			</prev>
+			
+			<next zindex="10" x="67" y="bottom">
+				<over>next_hover.png</over>
+				<out>next.png</out>
+				<release>next.png</release>
+				<press>next_press.png</press>
+			</next>
+			
+			<mute zindex="10" x="right" y="bottom">
+				<over>mute_hover.png</over>
+				<out>mute.png</out>
+				<release>mute.png</release>
+				<press>mute_press.png</press>
+			</mute>	
+			
+			<unmute zindex="10" x="right" y="bottom">
+				<over>unmute_hover.png</over>
+				<out>unmute.png</out>
+				<release>unmute.png</release>
+				<press>unmute_press.png</press>
+			</unmute>
+				
+				
+			<fullscreenon zindex="10" x="right-32" y="bottom">
+				<over>fullscreen_hover.png</over>
+				<out>fullscreen.png</out>
+				<release>fullscreen.png</release>
+				<press>fullscreen_press.png</press>
+			</fullscreenon>	
+											
+		</buttons>	
+		
+		<slider>
+			<!-- loading slider "behind" progress slider !-->
+			<loading zindex="10" width="100%-205-76" height="25" x="205" y="bottom" source="progress.png">
+				<mode>scale</mode>
+			</loading>
+						
+			<!-- progress slider !-->
+			<progress zindex="20" width="100%-205-76" height="25" x="205" y="bottom" source="progress2.png">
+				<mode>scale</mode>
+
+				<handle>
+				</handle>				
+			</progress>			
+
+		</slider>	
+
+		<!-- info areas !-->
+		<info>
+			<!-- text area position !-->
+			<area zindex="20" width="100" height="20" x="105" y="bottom-1">
+				<value><![CDATA[{%t}:{%ts}/{%l}:{%ls}]]></value>
+				
+				<!-- text refresh interval in ms !-->
+				<refresh>500</refresh>
+				
+				<!-- overflow actions !-->
+				<overflow>
+					<!-- enable flag [true, false] !-->
+					<enable>false</enable>
+				</overflow>	
+
+				<!-- font color !-->
+				<color>0x292929</color>
+				
+				<!-- font align !-->
+				<align>center</align>
+				
+				<!-- font size in px !-->
+				<size>11</size>
+				
+				<!-- font family !-->
+				<font>Arial</font>
+				
+				<!-- font weight bold [true, false] !-->
+				<bold>true</bold>
+				
+				<!-- font style italic [true, false] !-->
+				<italic>false</italic>
+				
+				<!-- letter spacing in px !-->
+				<letterspacing>3</letterspacing>
+				
+				<!-- html enabled [true, false] !-->
+				<html>false</html>
+			</area>
+			
+		</info>
+		
+		<!-- it's possible to add some images (e.g. background or watermark) to the player !-->
+		<images>
+			<!-- background !-->
+			<!-- <image zindex="0" x="0" y="0" width="100%" height="100%">blackbg.png</image> !-->
+
+			<!-- bottom controls !-->
+			<image zindex="9" x="0" y="bottom" width="100%" height="25">bottom.png</image>
+
+			<!-- progress !-->
+			<image zindex="10" x="205" y="bottom" width="100%-205-76" height="25">progressbg.png</image>
+		</images>	
+		
+	</normal>
+	<!-- // normal UI config !-->
+	
+	<!-- fullscreen UI config !-->
+	<fullscreen>
+		<!-- video/cover settings !-->
+		<engine zindex="2" width="100%" height="100%" x="center" y="center" z="0" rx="0" ry="0" rz="0">
+			<!-- size management [native, fixed, proportional] !-->
+			<sizing>proportional</sizing>
+		</engine>	
+		
+		<!-- in this section you can define the UI buttons !-->
+		<buttons>
+			<!-- big center button !-->
+			<start zindex="100" x="center" y="center">
+				<over>start_big_hover.png</over>
+				<out>start_big.png</out>
+			</start>
+			
+			<!-- main control bottom !-->
+			<start zindex="10" x="0" y="bottom">
+				<over>start_hover.png</over>
+				<out>start.png</out>
+				<release>start.png</release>
+				<press>start_press.png</press>
+			</start>
+			
+			<pause zindex="10" x="0" y="bottom">
+				<over>pause_hover.png</over>
+				<out>pause.png</out>
+				<release>pause.png</release>
+				<press>pause_press.png</press>
+			</pause>
+			
+			<prev zindex="10" x="32" y="bottom">
+				<over>prev_hover.png</over>
+				<out>prev.png</out>
+				<release>prev.png</release>
+				<press>prev_press.png</press>
+			</prev>
+			
+			<next zindex="10" x="67" y="bottom">
+				<over>next_hover.png</over>
+				<out>next.png</out>
+				<release>next.png</release>
+				<press>next_press.png</press>
+			</next>
+			
+			<mute zindex="10" x="right" y="bottom">
+				<over>mute_hover.png</over>
+				<out>mute.png</out>
+				<release>mute.png</release>
+				<press>mute_press.png</press>
+			</mute>	
+			
+			<unmute zindex="10" x="right" y="bottom">
+				<over>unmute_hover.png</over>
+				<out>unmute.png</out>
+				<release>unmute.png</release>
+				<press>unmute_press.png</press>
+			</unmute>
+				
+				
+			<fullscreenoff zindex="10" x="right-32" y="bottom">
+				<over>fullscreen_hover.png</over>
+				<out>fullscreen.png</out>
+				<release>fullscreen.png</release>
+				<press>fullscreen_press.png</press>
+			</fullscreenoff>	
+											
+		</buttons>	
+		
+		<slider>
+			<!-- loading slider "behind" progress slider !-->
+			<loading zindex="10" width="100%-205-76" height="25" x="205" y="bottom" source="progress.png">
+				<mode>scale</mode>
+			</loading>
+						
+			<!-- progress slider !-->
+			<progress zindex="20" width="100%-205-76" height="25" x="205" y="bottom" source="progress2.png">
+				<mode>scale</mode>
+
+				<handle>
+				</handle>				
+			</progress>			
+
+		</slider>	
+		
+		<!-- it's possible to add some images (e.g. background or watermark) to the player !-->
+		<images>
+			<!-- background !-->
+			<!-- <image zindex="0" x="0" y="0" width="100%" height="100%">blackbg.png</image> !-->
+
+			<!-- bottom controls !-->
+			<image zindex="9" x="0" y="bottom" width="100%" height="25">bottom.png</image>
+			
+			<!-- progress !-->
+			<image zindex="10" x="205" y="bottom" width="100%-205-76" height="25">progressbg.png</image>
+		</images>
+			
+		<!-- info areas !-->
+		<info>
+			<!-- text area position !-->
+			<area zindex="20" width="100" height="20" x="105" y="bottom-1">
+				<value><![CDATA[{%t}:{%ts}/{%l}:{%ls}]]></value>
+				
+				<!-- text refresh interval in ms !-->
+				<refresh>500</refresh>
+				
+				<!-- overflow actions !-->
+				<overflow>
+					<!-- enable flag [true, false] !-->
+					<enable>false</enable>
+				</overflow>	
+
+				<!-- font color !-->
+				<color>0x292929</color>
+				
+				<!-- font align !-->
+				<align>center</align>
+				
+				<!-- font size in px !-->
+				<size>11</size>
+				
+				<!-- font family !-->
+				<font>Arial</font>
+				
+				<!-- font weight bold [true, false] !-->
+				<bold>true</bold>
+				
+				<!-- font style italic [true, false] !-->
+				<italic>false</italic>
+				
+				<!-- letter spacing in px !-->
+				<letterspacing>3</letterspacing>
+				
+				<!-- html enabled [true, false] !-->
+				<html>false</html>
+			</area>
+			
+		</info>
+	</fullscreen>
+	<!-- // fullscreen UI config !-->
+	
+	
+	<!-- Zanmantou Settings !-->
+	<settings>
+		<!-- path to player images. NOTE: the image is loaded from the location "imgpath+source" !-->
+		<imgpath></imgpath>
+		
+		<!-- path to media files. NOTE: the file is loaded from the location "mediapath+source" !-->
+		<mediapath></mediapath>
+		
+		<!-- path to thumbnail images. NOTE: the file is loaded from the location "thumbnailpath+source" !-->
+		<thumbnailpath></thumbnailpath>
+		
+		<!-- initial volume [0 ... 1.0] !-->
+		<volume>1</volume>
+		
+		<!-- initial pan [-1.0 ... 0 ... 1.0] !-->
+		<pan>0</pan>
+		
+		<!-- initial repeatall status [true, false]!-->
+		<repeatall>true</repeatall>
+		
+		<!-- initial repeat status [true, false] !-->
+		<repeat>false</repeat>
+		
+		<!-- initial shuffle status [true, false] !-->
+		<shuffle>false</shuffle>
+		
+		<!-- initial smoothing [true, false] - only for std videos - 
+			WARNING causes extremly cpu usage when playing HD videos 
+			note: it doesnt' affect stagevideo accelerated playback!
+		!-->
+		<smoothing>false</smoothing>
+		
+		<!-- use StageVideo (hardware accelerated playback) for Playback ? [true, false] - it's recommend to use this feature but 
+			note: you can't rotate the engine component or use vosionlight features 
+		!-->
+		<stagevideo>true</stagevideo>
+		
+	</settings>		
+	<!-- // Zanmantou Settings !-->
+	
+	<!-- additional context menu items - same as buttons !-->
+	<contextmenu>
+		<start>Start Playing</start>
+		<pause>Pause Playing</pause>
+		<smoothingon>Enable Smoothing</smoothingon>
+		<smoothingoff>Disable Smoothing</smoothingoff>
+		<fullscreenon>Fullscreen On</fullscreenon>
+		<fullscreenoff>Fullscreen Off</fullscreenoff>
+		
+	</contextmenu>	
+	<!-- // additional context menu items !-->
+	
+</zanmantou>	

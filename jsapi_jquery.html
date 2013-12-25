@@ -1,0 +1,149 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+	<!-- 
+    	@author Andi Dittrich
+	!-->
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="de" lang="de">
+<head>
+	<!-- Meta !-->
+	<title>Zanmantou3 jQuery Examples | A3non.org</title>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+
+	<!-- jQuery !-->
+	<script type="text/javascript" src="js/jquery-1.4.2.min.js"></script>
+
+ 	<!-- Zanmantou JSAPI !-->
+ 	<script type="text/javascript" src="js/ZanmantouJSAPI-1.3-json-generic.yui.js"></script>
+ 
+	<!-- Startup !-->
+	<script type="text/javascript">
+	
+		// use the flashready event !!
+		a3non_zanmantou_flashready = (function(){
+	
+			/**
+			 * EXAMPLE 1
+			 */
+			var player1 = new Zanmantou('zanmantou1');
+			
+			$('#z1_start').click(function(){
+				player1.start();
+			});
+			$('#z1_stop').click(function(){
+				player1.stop();
+			});			
+			$('#z1_pause').click(function(){
+				player1.pause();
+			});			
+			$('#z1_next').click(function(){
+				player1.next();
+			});			
+			$('#z1_prev').click(function(){
+				player1.prev();
+			});
+			
+									
+			/**
+			 * EXAMPLE 3
+			 */
+			var player3 = new Zanmantou('zanmantou3');	
+			
+			// well jquery has no periodical() function in it's core...
+			window.setInterval(function(){
+				// FPS
+				$('#z3_fps').html(player3.getFPS());
+				
+				// time
+				$('#z3_time').html(player3.getMediaTime() + ':' + player3.getMediaLength());
+				
+				// playback active ?
+				if (player3.isPlaying()) {
+					$('#z3_playback').html('yes');
+				}else{
+					$('#z3_playback').html('no');
+				}
+			}, 500);
+			
+			// add play event handler
+			player3.addEvent('play', function(index){
+				// get active item
+				var item = player3.getMediaList()[index];
+
+				// set title by using medialist data
+				$('#z3_title').html(item.params.title);
+			});
+		});
+	
+		</script>
+<style type="text/css" media="screen">
+	body{
+		background-color: #f1f1f1;
+	}
+	.center{
+		width: 90%;
+		margin: 20px auto auto auto;
+		background-color: #ffffff;
+		padding: 20px;
+	}
+	.controls{
+		background-color: #e0e0e0;
+		border: solid 1px #a0a0a0;
+		padding: 15px;
+		margin: 10px 0px 10px 0px;
+	}
+	
+</style>	
+</head>
+<body>
+	
+<div class="center">	
+	<h1>Zanmantou3 JSAPI Demo</h1>	
+	<p>View <a href="http://docs.a3non.org/zanmantou3/">API Docs</a> - The API is released under the MIT Style X11 License</p>
+
+	<!-- example 1 !-->
+	<h2>Example 1 - Simple Control Elements</h2>
+	<object id="zanmantou1" data="Zanmantou3.swf" type="application/x-shockwave-flash" width="600" height="400" >
+		<param name="movie" value="Zanmantou3.swf" />
+		<param name="quality" value="best" />
+		<param name="scale" value="noscale" />
+		<param name="salign" value="lt" />
+		<param name="FlashVars" value="js=true&config=themes/puregrey/puregrey.xml&imagepath=themes/puregrey/&list=medialist.xml" />
+        <param name="wmode" value="direct" /> 
+		<param name="allowScriptAccess" value="sameDomain" />
+		<param name="allowFullScreen" value="true" />
+		<p>No Flashplayer installed</p>
+	</object>
+	
+	<div class="controls">
+		<input type="button" id="z1_start" value="start" />
+		<input type="button" id="z1_stop" value="stop" />
+		<input type="button" id="z1_pause" value="pause" />
+		<input type="button" id="z1_next" value="next" />
+		<input type="button" id="z1_prev" value="prev" />
+	</div>
+	
+
+	<!-- example 3 !-->
+	<h2>Example 3 - Status Informations</h2>
+	<object id="zanmantou3" data="Zanmantou3.swf" type="application/x-shockwave-flash" width="600" height="400" >
+		<param name="movie" value="Zanmantou3.swf" />
+		<param name="quality" value="best" />
+		<param name="scale" value="noscale" />
+		<param name="salign" value="lt" />
+		<param name="FlashVars" value="js=true&config=themes/puregrey/puregrey.xml&imagepath=themes/puregrey/&list=medialist.xml" />
+        <param name="wmode" value="direct" /> 
+		<param name="allowScriptAccess" value="sameDomain" />
+		<param name="allowFullScreen" value="true" />
+		<p>No Flashplayer installed</p>
+	</object>
+	
+	<div class="controls">
+		<p>FPS : <span id="z3_fps">-</span></p>
+		<p>Track Time in seconds: <span id="z3_time">-</span></p>
+		<p>Playback active: <span id="z3_playback">no</span></p>
+		<p>Title:  <span id="z3_title">-</span></p>
+	</div>
+    
+</div>
+</body>
+</html>

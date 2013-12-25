@@ -1,0 +1,15 @@
+<?xml version="1.0" ?>
+<project name="zanmantou3" default="build" basedir=".">
+        <target name="build">
+            <exec dir="." failonerror="true" executable="C:\Program Files (x86)\Adobe\Adobe Flash Builder 4\sdks\4.5.0\bin\mxmlc.exe">
+                  <arg line="a3non/zanmantou3/Zanmantou.as" />
+                  <arg line=" -o C:\www\htdocs\zanmantou3\Zanmantou3.swf -warnings=true" />
+                	<arg line=" -default-size 400 400" />
+                	<arg line=" -raw-metadata metadata.xml" />
+                	<arg line=" -default-background-color=0xFFFFFF" />
+            		<arg line=" -source-path=C:\Development\Zanmantou3\src\" />
+            		<arg line=" -static-link-runtime-shared-libraries=true -debug=false" />
+            		<arg line=" -show-actionscript-warnings=false" />
+            </exec>
+        </target>
+</project>

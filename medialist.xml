@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<zanmantou>
+	<item source="http://gridnode0.a3non.org/Zanmantou3/media/zanmantou3_intro1.f4v" type="video">
+		<param name="title">Zanmantou3 - Web AVPlayer</param>
+		<thumbnail>http://gridnode0.a3non.org/Zanmantou3/media/zanmantou3_intro1_thumb.jpg</thumbnail>
+	</item>
+	
+	<!-- for demonstration only - !!! DONT USE THIS AS DOWNLOAD MIRROR !!! !-->
+	<item source="http://gridnode0.a3non.org/Zanmantou3/media/big_buck_bunny_720p_h264.mov" type="video">
+		<param name="title">Big Buck Bunny - The Movie</param>
+		<thumbnail>http://gridnode0.a3non.org/Zanmantou3/media/big_buck_bunny_thumb.jpg</thumbnail>
+	</item>
+</zanmantou>	
